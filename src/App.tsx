@@ -6,7 +6,7 @@ import Controls from "./components/controls";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App  rounded-full drop-shadow-md">
       <div className="break-session">
         <Break />
         <Session />
