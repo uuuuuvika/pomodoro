@@ -6,7 +6,7 @@ type StartStopAction = { type: 'START_STOP' };
 type TickAction = { type: 'TICK' };
 type ResetAction = { type: 'RESET' };
 
-export type TimerAction =
+export type PomodoroAction =
   | IncrementSessionAction
   | DecrementSessionAction
   | IncrementBreakAction

@@ -1,6 +1,6 @@
-import { TimerAction } from "./actions";
+import { PomodoroAction } from "./actions";
 
-type TimerState = {
+type PomodoroState = {
   sessionLength: number;
   breakLength: number;
   timerLabel: 'Session' | 'Break';
@@ -8,7 +8,7 @@ type TimerState = {
   timerRunning: boolean;
 };
 
-const initialState: TimerState = {
+const initialState: PomodoroState = {
   sessionLength: 25,
   breakLength: 5,
   timerLabel: 'Session',
@@ -16,7 +16,7 @@ const initialState: TimerState = {
   timerRunning: false,
 };
 
-const timerReducer = (state = initialState, action: TimerAction): TimerState => {
+const PomodoroReducer = (state = initialState, action: PomodoroAction): PomodoroState => {
   switch (action.type) {
     case 'INCREMENT_SESSION':
       return {
@@ -32,7 +32,7 @@ const timerReducer = (state = initialState, action: TimerAction): TimerState => 
         ...state,
         sessionLength: state.sessionLength > 1 ? state.sessionLength - 1 : state.sessionLength,
         timeLeft:
-          state.timerLabel === 'Session'
+          state.timerLabel === 'Session' && state.sessionLength > 1 
             ? (state.sessionLength - 1) * 60
             : state.timeLeft,
       };
@@ -60,7 +60,8 @@ const timerReducer = (state = initialState, action: TimerAction): TimerState => 
         timerRunning: !state.timerRunning,
       };
     case 'TICK':
-      return {
+      if(state.timerRunning === true) {
+        return {
         ...state,
         timeLeft: state.timeLeft > 0 ? state.timeLeft - 1 : 0,
         timerLabel:
@@ -70,15 +71,19 @@ const timerReducer = (state = initialState, action: TimerAction): TimerState => 
               : 'Session'
             : state.timerLabel,
       };
+    }
+    return {
+      ...state,
+    }
     case 'RESET':
       return {
         ...initialState,
-        sessionLength: state.sessionLength,
-        breakLength: state.breakLength,
+        sessionLength: initialState.sessionLength,
+        breakLength: initialState.breakLength,
       };
     default:
       return state;
   }
 };
 
-export default timerReducer;
+export default PomodoroReducer;

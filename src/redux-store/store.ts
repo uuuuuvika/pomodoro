@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
-import timerReducer from "./timer-reducer";
+import PomodoroReducer from "./pomodoro-reducer";
 
 export const store = configureStore({
   reducer: {
-    timer: timerReducer,
+    pomodoro: PomodoroReducer,
   },
 });
 

@@ -1,19 +1,24 @@
-import React, { useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../redux-store/store';
 
 const Break: React.FC = () => {
-  const [breakLength, setBreakLength] = useState<number>(5);
+  const dispatch = useDispatch();
+  const {
+    breakLength,
+    timerRunning,
+  } = useSelector((state: RootState) => state.pomodoro);
 
-  const handleDecrement = () => {
-    if (breakLength > 1) {
-      setBreakLength(breakLength - 1);
+  const handleBreakIncrement = () => {
+    if (!timerRunning) {
+      dispatch({type: 'INCREMENT_BREAK'});
     }
   };
-  const handleIncrement = () => {
-    if (breakLength < 60) {
-      setBreakLength(breakLength + 1);
+  const handleBreakDecrement = () => {
+    if (!timerRunning) {
+      dispatch({type: 'DECREMENT_BREAK'});
     }
   };
-  
+
   return (
     <div className="row-child w-36">
       <div id="break-label">break length</div>
@@ -22,7 +27,7 @@ const Break: React.FC = () => {
         <button
           id="break-increment"
           className="btn flex-initial"
-          onClick={handleIncrement}
+          onClick={handleBreakIncrement}
         >
           +
         </button>
@@ -32,7 +37,7 @@ const Break: React.FC = () => {
         <button
           id="break-decrement"
           className="btn flex-initial"
-          onClick={handleDecrement}
+          onClick={handleBreakDecrement}
         >
           -
         </button>

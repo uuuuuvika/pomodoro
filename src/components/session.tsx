@@ -1,19 +1,24 @@
-import React, { useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../redux-store/store';
 
 const Session: React.FC = () => {
-  const [sessionLength, setSessionLength] = useState<number>(5);
+  const dispatch = useDispatch();
+  const {
+    sessionLength,
+    timerRunning,
+  } = useSelector((state: RootState) => state.pomodoro);
 
-  const handleDecrement = () => {
-    if (sessionLength > 1) {
-      setSessionLength(sessionLength - 1);
+  const handleSessionIncrement = () => {
+    if (!timerRunning) {
+      dispatch({type: 'INCREMENT_SESSION'});
     }
   };
-  const handleIncrement = () => {
-    if (sessionLength < 60) {
-      setSessionLength(sessionLength + 1);
+  const handleSessionDecrement = () => {
+    if (!timerRunning) {
+      dispatch({type: 'DECREMENT_SESSION'});
     }
   };
-
+  
   return (
     <div className="row-child w-36">
       <div id="session-label">session length</div>
@@ -22,7 +27,7 @@ const Session: React.FC = () => {
         <button
           id="session-increment"
           className="btn flex-initial"
-          onClick={handleIncrement}
+          onClick={handleSessionIncrement}
         >
           +
         </button>
@@ -32,7 +37,7 @@ const Session: React.FC = () => {
         <button
           id="session-decrement"
           className="btn flex-initial"
-          onClick={handleDecrement}
+          onClick={handleSessionDecrement}
         >
           -
         </button>
