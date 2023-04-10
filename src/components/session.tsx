@@ -13,7 +13,7 @@ const Session: React.FC = () => {
       setSessionLength(sessionLength + 1);
     }
   };
-  
+
   return (
     <div className="row-child w-36">
       <div id="session-label">session length</div>

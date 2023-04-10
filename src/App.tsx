@@ -4,15 +4,15 @@ import Session from "./components/session";
 import Timer from "./components/timer";
 import Controls from "./components/controls";
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App rounded-full drop-shadow-md font-mono">
-      <div className="break-session">
+      {/* <div className="break-session">
         <Break />
         <Session />
-      </div>
+      </div> */}
       <Timer />
-      <Controls />
+      {/* <Controls /> */}
     </div>
   );
 }
