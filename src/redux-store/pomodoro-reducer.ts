@@ -6,6 +6,7 @@ type PomodoroState = {
   timerLabel: 'Session' | 'Break';
   timeLeft: number;
   timerRunning: boolean;
+  isReseted: boolean;
 };
 
 const initialState: PomodoroState = {
@@ -14,6 +15,7 @@ const initialState: PomodoroState = {
   timerLabel: 'Session',
   timeLeft: 25 * 60,
   timerRunning: false,
+  isReseted: false,
 };
 
 const PomodoroReducer = (state = initialState, action: PomodoroAction): PomodoroState => {
@@ -80,6 +82,7 @@ const PomodoroReducer = (state = initialState, action: PomodoroAction): Pomodoro
         ...initialState,
         sessionLength: initialState.sessionLength,
         breakLength: initialState.breakLength,
+        isReseted: true,
       };
     default:
       return state;

@@ -1,17 +1,18 @@
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { RootState } from "../redux-store/store";
-const beep = new Audio('../metalofhonor.wav')
+const beep = require("../metalofhonor.wav")
 
 const Timer: React.FC = () => {
-  const { timerLabel, timeLeft } = useSelector(
+  const { timerLabel, timeLeft, isReseted } = useSelector(
     (state: RootState) => state.pomodoro
   );
   const minutesLeft = Math.floor(timeLeft / 60);
   const secondsLeft = timeLeft % 60;
 
   useEffect(() => {
-    if (timeLeft === 0) {
+    if (timeLeft === 57 && isReseted === false) {
+      const beep = document.getElementById('beep') as HTMLAudioElement;
       beep.play();
     }
   }, [timeLeft]);
@@ -19,7 +20,7 @@ const Timer: React.FC = () => {
   return (
     <div id="timer">
       <div id="timer-label">{timerLabel}</div>
-
+      <audio id="beep" src={beep}></audio>
       <div id="time-left">
         {minutesLeft < 10 ? `0${minutesLeft}` : minutesLeft}:
         {secondsLeft < 10 ? `0${secondsLeft}` : secondsLeft}
