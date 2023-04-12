@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { RootState } from "../redux-store/store";
 const beep = require("../metalofhonor.wav")
@@ -7,6 +7,7 @@ const Timer: React.FC = () => {
   const { timerLabel, timeLeft, isReseted } = useSelector(
     (state: RootState) => state.pomodoro
   );
+  const dispatch = useDispatch();
   console.log(timeLeft)
   console.log(timerLabel)
   const minutesLeft = Math.floor(timeLeft / 60);
@@ -16,6 +17,7 @@ const Timer: React.FC = () => {
     if (timeLeft === 0) {
       const beep = document.getElementById('beep') as HTMLAudioElement;
       beep.play();
+      // dispatch({ type: "NEXT_ROUND" });
     }
   }, [timeLeft]);
 
@@ -26,6 +28,7 @@ const Timer: React.FC = () => {
       beep.currentTime = 0;
     }
   }, [isReseted])
+
 
   return (
     <div id="timer">

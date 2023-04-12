@@ -4,21 +4,22 @@ import { RootState } from "../redux-store/store";
 
 export default function Controls() {
   const dispatch = useDispatch();
-  const { timerRunning, timeLeft } = useSelector((state: RootState) => state.pomodoro);
+  const { timerRunning, timeLeft } = useSelector(
+    (state: RootState) => state.pomodoro
+  );
 
   React.useEffect(() => {
     let intervalId: NodeJS.Timeout | null = null;
-      if (timeLeft > 0) {
-        intervalId = setInterval(() => {
-         dispatch({type:'TICK'});
-        }, 1000);
+    if (timeLeft > 0) {
+      intervalId = setInterval(() => {
+        dispatch({ type: "TICK" });
+      }, 1000);
+    }
+    return () => {
+      if (intervalId !== null) {
+        clearInterval(intervalId);
       }
-      return () => {
-        if (intervalId !== null) {
-          clearInterval(intervalId);
-        }
-      };
- 
+    };
   }, [dispatch, timeLeft]);
 
   const handleStartStop = () => {
