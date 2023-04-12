@@ -7,15 +7,25 @@ const Timer: React.FC = () => {
   const { timerLabel, timeLeft, isReseted } = useSelector(
     (state: RootState) => state.pomodoro
   );
+  console.log(timeLeft)
+  console.log(timerLabel)
   const minutesLeft = Math.floor(timeLeft / 60);
   const secondsLeft = timeLeft % 60;
-
+ 
   useEffect(() => {
-    if (timeLeft === 57 && isReseted === false) {
+    if (timeLeft === 0) {
       const beep = document.getElementById('beep') as HTMLAudioElement;
       beep.play();
     }
   }, [timeLeft]);
+
+  useEffect(() => {
+    if (isReseted) {
+      const beep = document.getElementById('beep') as HTMLAudioElement;
+      beep.pause();
+      beep.currentTime = 0;
+    }
+  }, [isReseted])
 
   return (
     <div id="timer">

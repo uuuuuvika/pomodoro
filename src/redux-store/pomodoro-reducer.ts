@@ -60,22 +60,23 @@ const PomodoroReducer = (state = initialState, action: PomodoroAction): Pomodoro
       return {
         ...state,
         timerRunning: !state.timerRunning,
+        isReseted: false,
       };
     case 'TICK':
       if(state.timerRunning === true) {
         return {
         ...state,
-        timeLeft: state.timeLeft > 0 ? state.timeLeft - 1 : 0,
-        timerLabel:
-          state.timeLeft === 0
-            ? state.timerLabel === 'Session'
-              ? 'Break'
-              : 'Session'
-            : state.timerLabel,
-      };
-    }
+        timeLeft: state.timeLeft > 0 ? state.timeLeft - 10 : 0,
+        }
+      }
     return {
       ...state,
+      timerLabel:
+      state.timeLeft === 0
+        ? state.timerLabel === 'Session'
+          ? 'Break'
+          : 'Session'
+        : state.timerLabel,
     }
     case 'RESET':
       return {
