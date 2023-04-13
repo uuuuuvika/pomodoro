@@ -10,7 +10,7 @@ export default function Controls() {
 
   React.useEffect(() => {
     let intervalId: NodeJS.Timeout | null = null;
-    if (timeLeft > 0) {
+    if (timeLeft >= 0) {
       intervalId = setInterval(() => {
         dispatch({ type: "TICK" });
       }, 1000);
@@ -27,6 +27,9 @@ export default function Controls() {
   };
 
   const handleReset = () => {
+    const beep = document.getElementById('beep') as HTMLAudioElement;
+    beep.pause();
+    beep.currentTime = 0;
     dispatch({ type: "RESET" });
   };
 

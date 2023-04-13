@@ -6,7 +6,6 @@ type PomodoroState = {
   timerLabel: "Session" | "Break";
   timeLeft: number;
   timerRunning: boolean;
-  isReseted: boolean;
 };
 
 const initialState: PomodoroState = {
@@ -15,7 +14,6 @@ const initialState: PomodoroState = {
   timerLabel: "Session",
   timeLeft: 25 * 60,
   timerRunning: false,
-  isReseted: false,
 };
 
 const PomodoroReducer = (
@@ -71,43 +69,34 @@ const PomodoroReducer = (
       return {
         ...state,
         timerRunning: !state.timerRunning,
-        isReseted: false,
       };
     case "TICK":
-      if (state.timerRunning === true && state.timeLeft !== 0) {
+      if (state.timerRunning === true) {
         const newTimeLeft = state.timeLeft - 1;
-        if (newTimeLeft > 0) {
+        if (newTimeLeft >= 0) {
           return {
             ...state,
             timeLeft: newTimeLeft,
           };
         } else {
-          console.log(state);
           return {
             ...state,
             timerLabel: state.timerLabel === "Session" ? "Break" : "Session",
-            timeLeft: 0,
+            timeLeft:
+              (state.timerLabel === "Session"
+                ? state.breakLength * 60
+                : state.sessionLength * 60),
           };
         }
       }
       return {
         ...state,
       };
-    case "NEXT_ROUND":
-      return {
-        ...state,
-        timeLeft:
-          state.timerLabel === "Break"
-            ? state.breakLength * 60
-            : state.sessionLength * 60,
-        timerRunning: true,
-      };
     case "RESET":
       return {
         ...initialState,
         sessionLength: initialState.sessionLength,
         breakLength: initialState.breakLength,
-        isReseted: true,
       };
     default:
       return state;

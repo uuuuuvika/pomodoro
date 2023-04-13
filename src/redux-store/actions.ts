@@ -5,7 +5,6 @@ type DecrementBreakAction = { type: 'DECREMENT_BREAK' };
 type StartStopAction = { type: 'START_STOP' };
 type TickAction = { type: 'TICK' };
 type ResetAction = { type: 'RESET' };
-type NextRoundAction = { type: 'NEXT_ROUND' };
 
 export type PomodoroAction =
   | IncrementSessionAction
@@ -15,4 +14,3 @@ export type PomodoroAction =
   | StartStopAction
   | TickAction
   | ResetAction
-  | NextRoundAction;
