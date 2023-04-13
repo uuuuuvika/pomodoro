@@ -6,7 +6,7 @@ import Controls from "./components/controls";
 
 const App: React.FC = () => {
   return (
-    <div className="App rounded-full drop-shadow-md font-mono">
+    <div className="App rounded-full drop-shadow-md font-mono" data-theme="cyberpunk">
       <div className="break-session">
         <Break />
         <Session />

@@ -35,10 +35,10 @@ export default function Controls() {
 
   return (
     <div className="space-x-4">
-      <button id="start_stop" onClick={handleStartStop} className="btn">
+      <button id="start_stop" onClick={handleStartStop} className="btn btn-outline btn-accent">
         {timerRunning ? "Stop" : "Start"}
       </button>
-      <button id="reset" onClick={handleReset} className="btn">
+      <button id="reset" onClick={handleReset} className="btn  btn-outline btn-success ">
         Reset
       </button>
     </div>
