@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/pomodoro/static/css/main.9ceb8f19.css",
+    "main.js": "/pomodoro/static/js/main.52befbf0.js",
+    "static/js/787.b1af5461.chunk.js": "/pomodoro/static/js/787.b1af5461.chunk.js",
+    "static/media/metalofhonor.wav": "/pomodoro/static/media/metalofhonor.a1581e1fe4adb6b1aba8.wav",
+    "index.html": "/pomodoro/index.html",
+    "main.9ceb8f19.css.map": "/pomodoro/static/css/main.9ceb8f19.css.map",
+    "main.52befbf0.js.map": "/pomodoro/static/js/main.52befbf0.js.map",
+    "787.b1af5461.chunk.js.map": "/pomodoro/static/js/787.b1af5461.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9ceb8f19.css",
+    "static/js/main.52befbf0.js"
+  ]
+}
