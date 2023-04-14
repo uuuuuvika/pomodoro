@@ -38,7 +38,7 @@ export default function Controls() {
       <button id="start_stop" onClick={handleStartStop} className="btn btn-outline btn-accent">
         {timerRunning ? "Stop" : "Start"}
       </button>
-      <button id="reset" onClick={handleReset} className="btn  btn-outline btn-success ">
+      <button id="reset" onClick={handleReset} className="btn  btn-outline btn-success">
         Reset
       </button>
     </div>

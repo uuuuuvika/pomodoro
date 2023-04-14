@@ -26,7 +26,7 @@ const Session: React.FC = () => {
       <div className="flex">
         <button
           id="session-increment"
-          className="btn flex-initial  btn-outline btn-accent"
+          className="btn flex-initial btn-accent mask mask-circle"
           onClick={handleSessionIncrement}
         >
           +
@@ -36,7 +36,7 @@ const Session: React.FC = () => {
         </div>
         <button
           id="session-decrement"
-          className="btn flex-initial  btn-outline btn-accent"
+          className="btn flex-initial btn-success mask mask-circle"
           onClick={handleSessionDecrement}
         >
           -

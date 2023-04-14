@@ -26,7 +26,7 @@ const Break: React.FC = () => {
       <div className="flex">
         <button
           id="break-increment"
-          className="btn flex-initial  btn-outline btn-accent"
+          className="btn flex-initial btn-accent mask mask-circle"
           onClick={handleBreakIncrement}
         >
           +
@@ -36,7 +36,7 @@ const Break: React.FC = () => {
         </div>
         <button
           id="break-decrement"
-          className="btn flex-initial   btn-outline btn-accent"
+          className="btn flex-initial btn-success mask mask-circle"
           onClick={handleBreakDecrement}
         >
           -
