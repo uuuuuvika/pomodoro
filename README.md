@@ -24,7 +24,7 @@ git clone https://github.com/uuuuuvika/pomodoro.git
 cd pomodoro
 npm install
 ```
-ou can then start the app by running the following command:
+You can then start the app by running the following command:
 
 ```shell
 npm start
