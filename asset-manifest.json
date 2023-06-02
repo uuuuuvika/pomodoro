@@ -1,16 +1,14 @@
 {
   "files": {
     "main.css": "/pomodoro/static/css/main.f8915e89.css",
-    "main.js": "/pomodoro/static/js/main.672ad72a.js",
-    "static/js/787.b1af5461.chunk.js": "/pomodoro/static/js/787.b1af5461.chunk.js",
+    "main.js": "/pomodoro/static/js/main.b6a1ca98.js",
     "static/media/metalofhonor.wav": "/pomodoro/static/media/metalofhonor.a1581e1fe4adb6b1aba8.wav",
     "index.html": "/pomodoro/index.html",
     "main.f8915e89.css.map": "/pomodoro/static/css/main.f8915e89.css.map",
-    "main.672ad72a.js.map": "/pomodoro/static/js/main.672ad72a.js.map",
-    "787.b1af5461.chunk.js.map": "/pomodoro/static/js/787.b1af5461.chunk.js.map"
+    "main.b6a1ca98.js.map": "/pomodoro/static/js/main.b6a1ca98.js.map"
   },
   "entrypoints": [
     "static/css/main.f8915e89.css",
-    "static/js/main.672ad72a.js"
+    "static/js/main.b6a1ca98.js"
   ]
 }
