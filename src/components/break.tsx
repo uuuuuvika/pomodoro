@@ -45,7 +45,7 @@ const Break: React.FC = () => {
           -
         </button>
       </div>
-      
+
     </div>
   );
 };
