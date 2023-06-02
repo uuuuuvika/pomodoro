@@ -1,13 +1,12 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useEffect } from "react";
-import { RootState } from "../redux-store/store";
-const beep = require("../metalofhonor.wav")
+import { RootState } from "../redux-functionality/store";
+const beep = require("../beep.wav")
 
 const Timer: React.FC = () => {
   const { timerLabel, timeLeft } = useSelector(
     (state: RootState) => state.pomodoro
   );
-  const dispatch = useDispatch();
   const minutesLeft = Math.floor(timeLeft / 60);
   const secondsLeft = timeLeft % 60;
  

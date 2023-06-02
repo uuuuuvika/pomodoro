@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../redux-store/store";
+import { RootState } from "../redux-functionality/store";
 
 export default function Controls() {
   const dispatch = useDispatch();
