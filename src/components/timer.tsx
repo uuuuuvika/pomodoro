@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { RootState } from "../redux-functionality/store";
-const beep = require("../beep.wav")
+const beep = require("../assets/beep.wav")
 
 const Timer: React.FC = () => {
   const { timerLabel, timeLeft } = useSelector(

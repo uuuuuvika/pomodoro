@@ -1,14 +1,14 @@
-import React from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux-functionality/store";
 
-export default function Controls() {
+const Controls: React.FC = () => {
   const dispatch = useDispatch();
   const { timerRunning, timeLeft } = useSelector(
     (state: RootState) => state.pomodoro
   );
 
-  React.useEffect(() => {
+useEffect(() => {
     let intervalId: NodeJS.Timeout | null = null;
     if (timeLeft >= 0) {
       intervalId = setInterval(() => {
@@ -27,7 +27,7 @@ export default function Controls() {
   };
 
   const handleReset = () => {
-    const beep = document.getElementById('beep') as HTMLAudioElement;
+    const beep = document.getElementById("beep") as HTMLAudioElement;
     beep.pause();
     beep.currentTime = 0;
     dispatch({ type: "RESET" });
@@ -35,12 +35,22 @@ export default function Controls() {
 
   return (
     <div className="space-x-4">
-      <button id="start_stop" onClick={handleStartStop} className="btn btn-outline btn-accent">
+      <button
+        id="start_stop"
+        onClick={handleStartStop}
+        className="btn btn-outline btn-accent"
+      >
         {timerRunning ? "Stop" : "Start"}
       </button>
-      <button id="reset" onClick={handleReset} className="btn  btn-outline btn-success">
+      <button
+        id="reset"
+        onClick={handleReset}
+        className="btn  btn-outline btn-success"
+      >
         Reset
       </button>
     </div>
   );
-}
+};
+
+export default Controls;

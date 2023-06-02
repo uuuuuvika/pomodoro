@@ -21,6 +21,7 @@ const Break: React.FC = () => {
 
   return (
     <div className="row-child w-36">
+
       <div id="break-label">break length</div>
 
       <div className="flex">
@@ -31,9 +32,11 @@ const Break: React.FC = () => {
         >
           +
         </button>
+
         <div id="break-length" className="flex-1">
           {breakLength}
         </div>
+
         <button
           id="break-decrement"
           className="btn flex-initial btn-success mask mask-circle"
@@ -42,6 +45,7 @@ const Break: React.FC = () => {
           -
         </button>
       </div>
+      
     </div>
   );
 };

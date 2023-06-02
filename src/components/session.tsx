@@ -21,6 +21,7 @@ const Session: React.FC = () => {
   
   return (
     <div className="row-child w-36">
+
       <div id="session-label">session length</div>
 
       <div className="flex">
@@ -31,9 +32,11 @@ const Session: React.FC = () => {
         >
           +
         </button>
+
         <div id="session-length" className="flex-1">
           {sessionLength}
         </div>
+
         <button
           id="session-decrement"
           className="btn flex-initial btn-success mask mask-circle"
@@ -42,6 +45,7 @@ const Session: React.FC = () => {
           -
         </button>
       </div>
+      
     </div>
   );
 };
